@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { fetchApi } from 'services/fetchApi';
+// import css from './Home.module.css'
 
 function Home() {
   const [trendingMovies, setTrendingMovies] = useState([]);

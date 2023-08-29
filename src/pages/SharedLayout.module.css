@@ -1,0 +1,29 @@
+.container {
+  margin-right: 200px;
+  margin-left: 200px;
+}
+
+.header {
+  border-bottom: 2px solid black;
+}
+
+.list {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  gap: 20px;
+}
+
+.item {
+  color: black;
+  text-decoration: none;
+}
+
+.item:hover,
+.item:focus {
+  color: orange;
+}
+
+.active {
+    color: orange;
+}

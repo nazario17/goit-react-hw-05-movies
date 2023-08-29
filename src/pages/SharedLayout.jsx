@@ -1,22 +1,31 @@
 import React from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { NavLink, Outlet } from 'react-router-dom';
+import css from './SharedLayout.module.css';
 
 function SharedLayout() {
   return (
-    <div>
-      <header>
+    <div className={css.container}>
+      <header className={css.header}>
         <nav>
-          <ul>
+          <ul className={css.list}>
             <li>
-              <Link to="/">Home</Link>
+              <NavLink className={css.item} activeClassName="active" to="/">
+                Home
+              </NavLink>
             </li>
             <li>
-              <Link to="/movies">Movies</Link>
+              <NavLink
+                className={css.item}
+                activeClassName="active"
+                to="/movies"
+              >
+                Movies
+              </NavLink>
             </li>
           </ul>
         </nav>
       </header>
-      <Outlet/>
+      <Outlet />
     </div>
   );
 }
