@@ -1,27 +1,29 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, Link, Outlet } from 'react-router-dom';
+import { useParams, Link, Outlet, useLocation } from 'react-router-dom';
 import { fetchApiMovie } from 'services/fetchApi';
 
 
 function MovieDetails() {
   const { movieId } = useParams();
   const [movieDetails, setMovieDetails] = useState({});
+  const location = useLocation()
+  const cameBack = location.state?.from ?? '/';
 
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const details = await fetchApiMovie(movieId);
-        setMovieDetails(details);
-      } catch (error) {
-        console.error('Error fetching movie details:', error);
+    useEffect(() => {
+      async function fetchData() {
+        try {
+          const details = await fetchApiMovie(movieId);
+          setMovieDetails(details);
+        } catch (error) {
+          console.error('Error fetching movie details:', error);
+        }
       }
-    }
-    fetchData();
-  }, [movieId]);
+      fetchData();
+    }, [movieId]);
 
     return (
       <div>
-        <Link to="/">Назад</Link>
+        <Link to={cameBack}>Back</Link>
 
         <div>
           <img

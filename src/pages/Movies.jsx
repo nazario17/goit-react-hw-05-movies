@@ -43,7 +43,7 @@ function Movies() {
       <ul>
         {searchResults.map(movie => (
           <li key={movie.id}>
-            <Link to={`/movies/${movie.id}`} state={{ from: location }}>
+            <Link to={`${movie.id}`} state={{ from: location }}>
               {movie.title}
             </Link>
           </li>
